@@ -23,9 +23,9 @@ steps:
     sonarQubeRunAnalysis: false
 - task: CopyFiles@2
   inputs:
+    SourceFolder: '/home/vsts/work/1/s/webapp/target'
     Contents: '**/*.war'
-    TargetFolder: '/home/vsts/work/1/s/webapp/target/webapp.war'
-    CleanTargetFolder: 
+    TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
